@@ -1,56 +1,63 @@
-const form = document.getElementById('todo-form');
-const input = document.getElementById('todo-input');
-const list = document.getElementById('todo-list');
-const emptyMsg = document.getElementById('empty-msg');
+// Tab switching
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
 
-let todos = JSON.parse(localStorage.getItem('todos') || '[]');
-
-function save() {
-  localStorage.setItem('todos', JSON.stringify(todos));
-}
-
-function render() {
-  list.innerHTML = '';
-  emptyMsg.style.display = todos.length === 0 ? 'block' : 'none';
-
-  todos.forEach((todo, i) => {
-    const li = document.createElement('li');
-    li.className = 'todo-item' + (todo.done ? ' done' : '');
-
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = todo.done;
-    checkbox.addEventListener('change', () => {
-      todos[i].done = checkbox.checked;
-      save();
-      render();
-    });
-
-    const span = document.createElement('span');
-    span.textContent = todo.text;
-
-    const del = document.createElement('button');
-    del.className = 'delete-btn';
-    del.textContent = '✕';
-    del.addEventListener('click', () => {
-      todos.splice(i, 1);
-      save();
-      render();
-    });
-
-    li.append(checkbox, span, del);
-    list.appendChild(li);
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabContents.forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
   });
-}
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const text = input.value.trim();
-  if (!text) return;
-  todos.push({ text, done: false });
-  input.value = '';
-  save();
-  render();
 });
 
-render();
+// Mobile nav toggle
+const menuBtn = document.querySelector('.nav-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Scroll-based nav active state
+const sections = document.querySelectorAll('section[id], header[id]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navAnchors.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + entry.target.id
+          ? 'rgba(255,255,255,0.95)'
+          : '';
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => observer.observe(s));
+
+// Animate stat numbers into view
+const statNums = document.querySelectorAll('.stat-num, .burden-number, .fact-number');
+
+const numObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      numObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+statNums.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  numObserver.observe(el);
+});
