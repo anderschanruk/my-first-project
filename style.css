@@ -297,10 +297,10 @@ ul[role="list"] { list-style: none; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 10vw, 5.5rem);
+  font-size: clamp(2rem, 8vw, 4.8rem);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--cream);
   margin-bottom: 20px;
   opacity: 0;
@@ -356,10 +356,10 @@ ul[role="list"] { list-style: none; }
 
 .stat-val {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-size: clamp(1.35rem, 4vw, 2rem);
   font-weight: 800;
   color: var(--blue);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 .stat-lbl {
@@ -444,10 +444,10 @@ ul[role="list"] { list-style: none; }
 .section-hd { margin-bottom: 48px; }
 .section-hd h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 6vw, 2.8rem);
+  font-size: clamp(1.55rem, 5vw, 2.5rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
   color: var(--ink);
   margin: 10px 0 14px;
 }
@@ -521,9 +521,9 @@ ul[role="list"] { list-style: none; }
 .bento-card:hover .bcard-icon { background: rgba(75,163,255,0.15); }
 
 .bento-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--dark);
   margin-bottom: 8px;
 }
@@ -550,9 +550,9 @@ ul[role="list"] { list-style: none; }
   flex-shrink: 0;
 }
 .connection-callout h3 {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--blue-dim);
   margin-bottom: 8px;
 }
@@ -620,10 +620,10 @@ ul[role="list"] { list-style: none; }
 
 .sc-num {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  font-size: clamp(1.65rem, 5vw, 2.8rem);
   font-weight: 800;
   color: var(--blue);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 12px;
 }
@@ -637,11 +637,11 @@ ul[role="list"] { list-style: none; }
 .trend-block {}
 .trend-hd {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
   font-weight: 700;
   color: var(--cream);
   margin-bottom: 24px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .trend-rows {
   border: 1px solid var(--dark-border);
@@ -701,9 +701,9 @@ ul[role="list"] { list-style: none; }
 
 .fact-pct {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 3.5rem);
+  font-size: clamp(1.65rem, 5vw, 2.6rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 14px;
   color: var(--blue);
@@ -733,9 +733,9 @@ ul[role="list"] { list-style: none; }
   box-shadow: 0 12px 32px rgba(75,163,255,0.1);
 }
 .sci-panel h3 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  font-weight: 600;
   color: var(--dark);
   margin-bottom: 10px;
 }
@@ -808,9 +808,9 @@ ul[role="list"] { list-style: none; }
   letter-spacing: 0.08em;
 }
 .prev-card h3 {
-  font-family: var(--font-display);
-  font-size: 0.97rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--cream);
   line-height: 1.35;
 }
@@ -843,10 +843,10 @@ ul[role="list"] { list-style: none; }
 .cta-inner { display: flex; flex-direction: column; gap: 32px; }
 .cta-copy h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 5vw, 2.4rem);
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
   font-weight: 800;
   color: var(--cream);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   margin-bottom: 14px;
 }
@@ -950,7 +950,7 @@ ul[role="list"] { list-style: none; }
   .bento-c6 { grid-column: 1 / 13; display: flex; align-items: center; gap: 32px; }
   .bento-c6 .bcard-icon { flex-shrink: 0; }
   .bento-c6 .bcard-icon { width: 56px; height: 56px; margin-bottom: 0; }
-  .bento-c6 h3 { font-size: 1.1rem; margin-bottom: 6px; }
+  .bento-c6 h3 { font-size: 1rem; margin-bottom: 6px; }
 
   /* Stats bento */
   .stats-bento {
