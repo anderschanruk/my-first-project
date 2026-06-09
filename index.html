@@ -4,166 +4,253 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardiometabolic Diseases — Novo Nordisk Foundation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-inner">
-      <div class="nav-logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">Novo Nordisk Foundation</span>
-      </div>
-      <ul class="nav-links">
+      <a href="/" class="nav-logo">
+        <img src="assets/logos/logo_inline_white.png" alt="Novo Nordisk Foundation" height="28" width="auto">
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
         <li><a href="#what">What It Is</a></li>
         <li><a href="#burden">The Burden</a></li>
         <li><a href="#facts">Key Facts</a></li>
         <li><a href="#prevention">Prevention</a></li>
       </ul>
-      <button class="nav-menu-btn" aria-label="Toggle menu">&#9776;</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
   <!-- Hero -->
   <header class="hero">
-    <div class="hero-wave"></div>
-    <div class="hero-content">
-      <p class="hero-label">Health Intelligence Series</p>
-      <h1 class="hero-title">Cardiometabolic<br>Diseases</h1>
-      <p class="hero-subtitle">Understanding the silent epidemic reshaping global health — and what we can do about it.</p>
-      <a href="#what" class="btn btn-primary">Explore the Evidence</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="stat-num">1 in 3</span>
-        <span class="stat-label">adults globally affected</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num">19M+</span>
-        <span class="stat-label">deaths per year</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num">$47T</span>
-        <span class="stat-label">projected economic cost by 2030</span>
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-bg-img"></div>
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-ring" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="90" fill="currentColor"/>
+          <circle cx="100" cy="100" r="56" fill="#141419"/>
+        </svg>
       </div>
     </div>
+
+    <div class="hero-body">
+      <p class="hero-eyebrow">Health Intelligence Series</p>
+      <h1 class="hero-title" id="hero-title">
+        <span class="word">Cardio&shy;</span><span class="word">metabolic</span><br>
+        <span class="word">Diseases</span>
+      </h1>
+      <p class="hero-sub">Understanding the silent epidemic reshaping global health — and what we can do about it.</p>
+      <div class="hero-ctas">
+        <a href="#what" class="btn btn-blue">Explore the Evidence</a>
+        <a href="#prevention" class="btn btn-ghost">Prevention Strategies</a>
+      </div>
+    </div>
+
+    <div class="hero-stats" aria-label="Key statistics">
+      <div class="hero-stat">
+        <strong class="stat-val">1 in 3</strong>
+        <span class="stat-lbl">adults globally affected</span>
+      </div>
+      <div class="hero-stat">
+        <strong class="stat-val counter" data-target="19" data-suffix="M+">19M+</strong>
+        <span class="stat-lbl">deaths per year</span>
+      </div>
+      <div class="hero-stat">
+        <strong class="stat-val">$47T</strong>
+        <span class="stat-lbl">projected economic cost by 2030</span>
+      </div>
+    </div>
+
+    <a href="#what" class="hero-scroll-hint" aria-label="Scroll to content">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.2"/><path d="M7 9l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </header>
 
+  <!-- Ticker marquee -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Cardiovascular Disease</span><span class="ticker-dot">◆</span>
+      <span>Type 2 Diabetes</span><span class="ticker-dot">◆</span>
+      <span>Metabolic Syndrome</span><span class="ticker-dot">◆</span>
+      <span>Hypertension</span><span class="ticker-dot">◆</span>
+      <span>Obesity</span><span class="ticker-dot">◆</span>
+      <span>Fatty Liver Disease</span><span class="ticker-dot">◆</span>
+      <span>Prevention</span><span class="ticker-dot">◆</span>
+      <span>Early Detection</span><span class="ticker-dot">◆</span>
+      <span>Population Health</span><span class="ticker-dot">◆</span>
+      <span>Health Equity</span><span class="ticker-dot">◆</span>
+      <span>Research</span><span class="ticker-dot">◆</span>
+      <span>Innovation</span><span class="ticker-dot">◆</span>
+      <!-- duplicate for seamless loop -->
+      <span>Cardiovascular Disease</span><span class="ticker-dot">◆</span>
+      <span>Type 2 Diabetes</span><span class="ticker-dot">◆</span>
+      <span>Metabolic Syndrome</span><span class="ticker-dot">◆</span>
+      <span>Hypertension</span><span class="ticker-dot">◆</span>
+      <span>Obesity</span><span class="ticker-dot">◆</span>
+      <span>Fatty Liver Disease</span><span class="ticker-dot">◆</span>
+      <span>Prevention</span><span class="ticker-dot">◆</span>
+      <span>Early Detection</span><span class="ticker-dot">◆</span>
+      <span>Population Health</span><span class="ticker-dot">◆</span>
+      <span>Health Equity</span><span class="ticker-dot">◆</span>
+      <span>Research</span><span class="ticker-dot">◆</span>
+      <span>Innovation</span><span class="ticker-dot">◆</span>
+    </div>
+  </div>
+
   <!-- What Are Cardiometabolic Diseases -->
-  <section id="what" class="section section-light">
+  <section id="what" class="section cream">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Definition</span>
-        <h2>What Are Cardiometabolic Diseases?</h2>
-        <p class="section-intro">Cardiometabolic diseases are a cluster of interconnected conditions that arise from disruptions to metabolism and cardiovascular function — often sharing the same root causes.</p>
-      </div>
-      <div class="definition-grid">
-        <div class="definition-card">
-          <div class="def-icon heart"></div>
+      <header class="section-hd" data-animate="fade-up">
+        <span class="eyebrow">Definition</span>
+        <h2>What Are Cardiometabolic<br class="br-desk"> Diseases?</h2>
+        <p class="section-lede">A cluster of interconnected conditions arising from disruptions to metabolism and cardiovascular function — often sharing the same root causes and amplifying each other.</p>
+      </header>
+
+      <div class="bento" role="list">
+        <article class="bento-card bento-c1" data-animate="fade-up" data-delay="0" role="listitem">
+          <div class="bcard-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M20 34S6 25.5 6 16a8 8 0 0116 0 8 8 0 0116 0c0 9.5-18 18-18 18z" fill="var(--blue)" opacity=".15" stroke="var(--blue)" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 18h4l2-4 4 8 2-5 2 3h4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3>Cardiovascular Disease</h3>
-          <p>A group of disorders affecting the heart and blood vessels, including coronary artery disease, heart failure, stroke, and peripheral arterial disease. Metabolic disturbances dramatically accelerate cardiovascular damage.</p>
-        </div>
-        <div class="definition-card">
-          <div class="def-icon diabetes"></div>
+          <p>Disorders affecting the heart and blood vessels — coronary artery disease, heart failure, stroke, and peripheral arterial disease. Metabolic disturbances dramatically accelerate cardiovascular damage.</p>
+        </article>
+
+        <article class="bento-card bento-c2" data-animate="fade-up" data-delay="60" role="listitem">
+          <div class="bcard-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="10" fill="var(--blue)" opacity=".12" stroke="var(--blue)" stroke-width="1.5"/><circle cx="20" cy="20" r="3" fill="var(--blue)"/><path d="M20 12v3M20 25v3M12 20h3M25 20h3" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
           <h3>Type 2 Diabetes</h3>
-          <p>A chronic condition in which cells become resistant to insulin, causing elevated blood glucose. Strongly driven by excess visceral fat, inactivity, and chronic inflammation — and a major driver of cardiovascular risk.</p>
-        </div>
-        <div class="definition-card">
-          <div class="def-icon obesity"></div>
+          <p>Cells become resistant to insulin, causing elevated blood glucose. Strongly driven by excess visceral fat, inactivity, and chronic inflammation — and a major driver of cardiovascular risk.</p>
+        </article>
+
+        <article class="bento-card bento-c3" data-animate="fade-up" data-delay="120" role="listitem">
+          <div class="bcard-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="22" rx="11" ry="9" fill="var(--blue)" opacity=".12" stroke="var(--blue)" stroke-width="1.5"/><path d="M14 16c1-4 12-4 12 0" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/><path d="M20 10v4" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
           <h3>Obesity</h3>
-          <p>Excess body fat — especially around the abdomen — creates a state of low-grade chronic inflammation and hormonal disruption that underpins nearly every other cardiometabolic condition.</p>
-        </div>
-        <div class="definition-card">
-          <div class="def-icon metabolic"></div>
+          <p>Excess body fat — especially abdominal — creates low-grade chronic inflammation and hormonal disruption that underpins nearly every other cardiometabolic condition.</p>
+        </article>
+
+        <article class="bento-card bento-c4" data-animate="fade-up" data-delay="0" role="listitem">
+          <div class="bcard-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="14" width="24" height="16" rx="3" fill="var(--blue)" opacity=".12" stroke="var(--blue)" stroke-width="1.5"/><path d="M14 22h3l2-4 4 8 2-5 1.5 3H28" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3>Metabolic Syndrome</h3>
-          <p>A combination of high blood pressure, elevated triglycerides, low HDL cholesterol, excess waist circumference, and elevated fasting glucose. Having three or more of these multiplies cardiovascular risk.</p>
-        </div>
-        <div class="definition-card">
-          <div class="def-icon liver"></div>
-          <h3>MASLD / Fatty Liver Disease</h3>
-          <p>Metabolic dysfunction-associated steatotic liver disease (MASLD) affects around 25% of adults worldwide and frequently co-occurs with diabetes and cardiovascular disease, worsening outcomes across all three.</p>
-        </div>
-        <div class="definition-card">
-          <div class="def-icon pressure"></div>
+          <p>High blood pressure, elevated triglycerides, low HDL, excess waist circumference, and elevated fasting glucose. Three or more of these dramatically multiplies cardiovascular risk.</p>
+        </article>
+
+        <article class="bento-card bento-c5" data-animate="fade-up" data-delay="60" role="listitem">
+          <div class="bcard-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><path d="M14 8h12a4 4 0 014 4v8a10 10 0 01-20 0V12a4 4 0 014-4z" fill="var(--blue)" opacity=".12" stroke="var(--blue)" stroke-width="1.5"/><path d="M16 20c1 2 7 2 8 0" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>MASLD / Fatty Liver</h3>
+          <p>Metabolic dysfunction-associated steatotic liver disease affects ~25% of adults and frequently co-occurs with diabetes and cardiovascular disease, worsening outcomes across all three.</p>
+        </article>
+
+        <article class="bento-card bento-c6" data-animate="fade-up" data-delay="120" role="listitem">
+          <div class="bcard-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><rect x="10" y="16" width="20" height="16" rx="2" fill="var(--blue)" opacity=".12" stroke="var(--blue)" stroke-width="1.5"/><path d="M15 16v-3a5 5 0 0110 0v3" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="24" r="2" fill="var(--blue)"/></svg>
+          </div>
           <h3>Hypertension</h3>
-          <p>Chronically elevated blood pressure is both a cause and consequence of cardiometabolic dysfunction. It silently damages the heart, kidneys, brain, and arteries for years before causing an acute event.</p>
+          <p>Chronically elevated blood pressure silently damages the heart, kidneys, brain, and arteries for years before causing an acute event. Both cause and consequence of cardiometabolic dysfunction.</p>
+        </article>
+      </div>
+
+      <!-- Connection callout -->
+      <aside class="connection-callout" data-animate="fade-up">
+        <div class="callout-line" aria-hidden="true"></div>
+        <div class="callout-body">
+          <h3>The Cardiometabolic Connection</h3>
+          <p>These conditions don't exist in isolation. Obesity drives insulin resistance → which drives type 2 diabetes → which accelerates atherosclerosis → which drives cardiovascular events. Hypertension worsens kidney disease. Fatty liver amplifies all of the above. Understanding this web of interactions is essential to effective prevention and treatment.</p>
         </div>
-      </div>
-      <div class="connection-box">
-        <h3>The Cardiometabolic Connection</h3>
-        <p>These conditions do not exist in isolation. Obesity drives insulin resistance, which drives type 2 diabetes. Diabetes accelerates atherosclerosis, which drives cardiovascular events. Hypertension worsens kidney disease. Fatty liver amplifies all of the above. Understanding this web of interactions is essential to effective prevention and treatment.</p>
-      </div>
+      </aside>
     </div>
   </section>
 
+  <!-- Parallax quote break -->
+  <div class="quote-break" aria-hidden="true">
+    <div class="quote-break-img"></div>
+    <div class="quote-break-overlay"></div>
+    <blockquote class="quote-break-text" data-animate="fade-up">
+      "Cardiometabolic disease is not inevitable. It is the predictable consequence of environments and behaviours that can be changed."
+    </blockquote>
+  </div>
+
   <!-- The Burden -->
-  <section id="burden" class="section section-dark">
+  <section id="burden" class="section dark">
     <div class="container">
-      <div class="section-header section-header-dark">
-        <span class="section-tag">Global Burden</span>
+      <header class="section-hd section-hd-dark" data-animate="fade-up">
+        <span class="eyebrow">Global Burden</span>
         <h2>A Mounting Crisis</h2>
-        <p class="section-intro">Cardiometabolic diseases are now the leading cause of premature death and disability worldwide — and the numbers are accelerating.</p>
+        <p class="section-lede">Cardiometabolic diseases are the leading cause of premature death and disability worldwide — and the numbers are accelerating.</p>
+      </header>
+
+      <!-- Bento stats grid -->
+      <div class="stats-bento">
+        <div class="stats-card sc-a" data-animate="fade-up" data-delay="0">
+          <div class="sc-num counter" data-target="540" data-suffix="M">540M</div>
+          <p>people live with diabetes globally — 90% have type 2</p>
+        </div>
+        <div class="stats-card sc-b" data-animate="fade-up" data-delay="80">
+          <div class="sc-num counter" data-target="1.28" data-suffix="B">1.28B</div>
+          <p>adults have hypertension — two-thirds in low- and middle-income countries</p>
+        </div>
+        <div class="stats-card sc-c" data-animate="fade-up" data-delay="160">
+          <div class="sc-num counter" data-target="2.5" data-suffix="B">2.5B</div>
+          <p>adults are overweight or obese — a figure that has tripled since 1975</p>
+        </div>
+        <div class="stats-card sc-d" data-animate="fade-up" data-delay="240">
+          <div class="sc-num counter" data-target="17.9" data-suffix="M">17.9M</div>
+          <p>cardiovascular deaths per year — 32% of all global mortality</p>
+        </div>
       </div>
 
-      <div class="burden-numbers">
-        <div class="burden-card">
-          <div class="burden-number">540M</div>
-          <div class="burden-desc">people live with diabetes globally (IDF 2021), with 90% having type 2 diabetes</div>
-        </div>
-        <div class="burden-card">
-          <div class="burden-number">1.28B</div>
-          <div class="burden-desc">adults worldwide have hypertension — two-thirds are in low- and middle-income countries</div>
-        </div>
-        <div class="burden-card">
-          <div class="burden-number">2.5B</div>
-          <div class="burden-desc">adults are overweight or obese globally as of 2022, a figure that has tripled since 1975</div>
-        </div>
-        <div class="burden-card">
-          <div class="burden-number">17.9M</div>
-          <div class="burden-desc">deaths are caused by cardiovascular disease each year — 32% of all global deaths</div>
-        </div>
-      </div>
-
-      <div class="trend-section">
-        <h3>Why the Numbers Are Getting Worse</h3>
-        <div class="trend-list">
-          <div class="trend-item">
-            <div class="trend-icon">&#8599;</div>
-            <div>
+      <!-- Trend drivers -->
+      <div class="trend-block" data-animate="fade-up">
+        <h3 class="trend-hd">Why the numbers are getting worse</h3>
+        <div class="trend-rows">
+          <div class="trend-row">
+            <div class="trend-num">01</div>
+            <div class="trend-content">
               <strong>Urbanisation &amp; sedentary lifestyles</strong>
               <p>More than 55% of the global population now lives in urban areas. Office work, screen time, and car dependency have dramatically reduced daily physical activity across all age groups.</p>
             </div>
           </div>
-          <div class="trend-item">
-            <div class="trend-icon">&#8599;</div>
-            <div>
+          <div class="trend-row">
+            <div class="trend-num">02</div>
+            <div class="trend-content">
               <strong>Ultra-processed food environments</strong>
-              <p>Ultra-processed foods now represent 56% of caloric intake in high-income countries. They are engineered to drive overconsumption, displace whole foods, and promote the exact metabolic disruptions that cause these diseases.</p>
+              <p>Ultra-processed foods represent 56% of caloric intake in high-income countries — engineered to drive overconsumption and promote the exact metabolic disruptions that cause these diseases.</p>
             </div>
           </div>
-          <div class="trend-item">
-            <div class="trend-icon">&#8599;</div>
-            <div>
+          <div class="trend-row">
+            <div class="trend-num">03</div>
+            <div class="trend-content">
               <strong>Ageing populations</strong>
-              <p>The world's population aged 60+ will double by 2050. Older age is strongly associated with declining metabolic function, making the cardiometabolic burden inevitable without early intervention.</p>
+              <p>The world's population aged 60+ will double by 2050. Older age is strongly associated with declining metabolic function, making the burden inevitable without early intervention.</p>
             </div>
           </div>
-          <div class="trend-item">
-            <div class="trend-icon">&#8599;</div>
-            <div>
+          <div class="trend-row">
+            <div class="trend-num">04</div>
+            <div class="trend-content">
               <strong>Health inequity</strong>
-              <p>Low- and middle-income countries bear 80% of the global mortality from cardiometabolic disease, yet receive a fraction of global health funding. Structural disadvantage drives excess risk at every level.</p>
+              <p>Low- and middle-income countries bear 80% of global cardiometabolic mortality, yet receive a fraction of global health funding. Structural disadvantage drives excess risk at every level.</p>
             </div>
           </div>
-          <div class="trend-item">
-            <div class="trend-icon">&#8599;</div>
-            <div>
+          <div class="trend-row">
+            <div class="trend-num">05</div>
+            <div class="trend-content">
               <strong>Chronic stress &amp; sleep deprivation</strong>
-              <p>Modern work patterns and social pressures elevate cortisol chronically. Poor sleep independently raises blood glucose, promotes visceral fat accumulation, and increases cardiovascular risk.</p>
+              <p>Modern work patterns elevate cortisol chronically. Poor sleep independently raises blood glucose, promotes visceral fat accumulation, and increases cardiovascular risk.</p>
             </div>
           </div>
         </div>
@@ -172,178 +259,109 @@
   </section>
 
   <!-- Key Facts -->
-  <section id="facts" class="section section-light">
+  <section id="facts" class="section cream">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Key Facts &amp; Data</span>
+      <header class="section-hd" data-animate="fade-up">
+        <span class="eyebrow">Key Facts &amp; Data</span>
         <h2>What the Science Tells Us</h2>
-        <p class="section-intro">Decades of research have established clear links between biological, behavioural, and societal factors in the development of cardiometabolic disease.</p>
+        <p class="section-lede">Decades of research have established clear links between biological, behavioural, and societal factors in cardiometabolic disease.</p>
+      </header>
+
+      <div class="facts-bento">
+        <div class="fact-card fact-dk" data-animate="scale-up" data-delay="0">
+          <div class="fact-pct counter" data-target="80" data-suffix="%">80%</div>
+          <p>of type 2 diabetes cases and a large proportion of cardiovascular events are considered <strong>preventable</strong> through lifestyle modification.</p>
+        </div>
+        <div class="fact-card fact-lt" data-animate="scale-up" data-delay="80">
+          <div class="fact-pct counter" data-target="70" data-suffix="%">70%</div>
+          <p>of people with type 2 diabetes will develop cardiovascular disease during their lifetime — both share roots in insulin resistance.</p>
+        </div>
+        <div class="fact-card fact-lt" data-animate="scale-up" data-delay="160">
+          <div class="fact-pct">5–10%</div>
+          <p>body weight reduction significantly reduces blood pressure, blood glucose, and LDL cholesterol — often comparable to medication.</p>
+        </div>
+        <div class="fact-card fact-dk" data-animate="scale-up" data-delay="240">
+          <div class="fact-pct counter" data-target="500" data-suffix="M">500M</div>
+          <p>people currently have prediabetes and most are unaware. Without intervention, ~70% will progress to type 2 diabetes within a decade.</p>
+        </div>
       </div>
 
-      <div class="facts-grid">
-        <div class="fact-block fact-blue">
-          <div class="fact-number">80%</div>
-          <p>of type 2 diabetes cases and a large proportion of cardiovascular events are considered preventable through lifestyle modification — diet, physical activity, and smoking cessation.</p>
-        </div>
-        <div class="fact-block fact-light">
-          <div class="fact-number">70%</div>
-          <p>of people with type 2 diabetes will develop cardiovascular disease during their lifetime. The two conditions share deep biological roots in insulin resistance and chronic inflammation.</p>
-        </div>
-        <div class="fact-block fact-light">
-          <div class="fact-number">5–10%</div>
-          <p>body weight reduction in overweight individuals significantly reduces blood pressure, blood glucose, and LDL cholesterol — often achieving clinical improvements comparable to medication.</p>
-        </div>
-        <div class="fact-block fact-blue">
-          <div class="fact-number">500M</div>
-          <p>people currently have prediabetes and most are unaware of it. Without intervention, around 70% will progress to full type 2 diabetes within a decade.</p>
-        </div>
-      </div>
-
-      <div class="science-panels">
-        <div class="science-panel">
+      <!-- Science panels -->
+      <div class="science-grid">
+        <div class="sci-panel" data-animate="fade-up" data-delay="0">
           <h3>The Role of Visceral Fat</h3>
-          <p>Not all body fat is equal. Visceral fat — stored around the abdominal organs — is metabolically active, secreting inflammatory cytokines and free fatty acids that disrupt insulin signalling, elevate triglycerides, reduce HDL cholesterol, and damage arterial walls. Waist circumference is a stronger predictor of cardiometabolic risk than BMI alone.</p>
+          <p>Not all fat is equal. Visceral fat secretes inflammatory cytokines and free fatty acids that disrupt insulin signalling, elevate triglycerides, and damage arterial walls. Waist circumference is a stronger predictor of cardiometabolic risk than BMI alone.</p>
         </div>
-        <div class="science-panel">
-          <h3>Chronic Inflammation as the Common Thread</h3>
-          <p>Low-grade systemic inflammation links obesity, diabetes, cardiovascular disease, and liver disease. Elevated biomarkers like hs-CRP, IL-6, and TNF-α are found across all cardiometabolic conditions. Anti-inflammatory dietary patterns and physical activity consistently reduce these markers and the risk of disease progression.</p>
+        <div class="sci-panel" data-animate="fade-up" data-delay="80">
+          <h3>Chronic Inflammation</h3>
+          <p>Low-grade systemic inflammation links obesity, diabetes, cardiovascular disease, and liver disease. Elevated biomarkers like hs-CRP and IL-6 are found across all conditions. Anti-inflammatory diets and physical activity consistently reduce these markers.</p>
         </div>
-        <div class="science-panel">
-          <h3>The Gut Microbiome Connection</h3>
-          <p>Emerging evidence implicates the gut microbiome as a key regulator of metabolic health. Disrupted microbiome composition (dysbiosis) is associated with insulin resistance, obesity, and cardiovascular risk. Diet — particularly fibre and fermented foods — is the most modifiable determinant of microbiome health.</p>
+        <div class="sci-panel" data-animate="fade-up" data-delay="160">
+          <h3>The Gut Microbiome</h3>
+          <p>Disrupted microbiome composition is associated with insulin resistance, obesity, and cardiovascular risk. Diet — particularly fibre and fermented foods — is the most modifiable determinant of microbiome health.</p>
         </div>
-        <div class="science-panel">
+        <div class="sci-panel" data-animate="fade-up" data-delay="240">
           <h3>Early-Onset Trends</h3>
-          <p>Young-onset cardiometabolic disease is accelerating. Type 2 diabetes in under-40s has more than doubled in the past two decades. Young people with early-onset disease face longer disease duration and, consequently, greater cumulative risk of complications. Paediatric obesity rates make this a multi-generational challenge.</p>
+          <p>Type 2 diabetes in under-40s has more than doubled in two decades. Young people with early-onset disease face longer disease duration and greater cumulative complications risk. Paediatric obesity makes this a multi-generational challenge.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Prevention -->
-  <section id="prevention" class="section section-dark">
+  <section id="prevention" class="section dark">
     <div class="container">
-      <div class="section-header section-header-dark">
-        <span class="section-tag">Prevention</span>
+      <header class="section-hd section-hd-dark" data-animate="fade-up">
+        <span class="eyebrow">Prevention</span>
         <h2>What Can Be Done</h2>
-        <p class="section-intro">The evidence base for prevention is robust. Both individual actions and structural change at the population level are needed to turn the tide.</p>
+        <p class="section-lede">The evidence base for prevention is robust. Both individual actions and structural change at the population level are needed to turn the tide.</p>
+      </header>
+
+      <div class="tab-row" role="tablist" aria-label="Prevention levels" data-animate="fade-up">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="tab-individual" data-tab="individual">Individual</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-clinical" data-tab="clinical">Clinical</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-population" data-tab="population">Population</button>
       </div>
 
-      <div class="prevention-tabs">
-        <button class="tab-btn active" data-tab="individual">Individual</button>
-        <button class="tab-btn" data-tab="clinical">Clinical</button>
-        <button class="tab-btn" data-tab="population">Population</button>
-      </div>
-
-      <div class="tab-content active" id="tab-individual">
-        <div class="prevention-grid">
-          <div class="prevention-card">
-            <div class="prev-number">01</div>
-            <h3>Prioritise Dietary Quality</h3>
-            <p>A diet rich in vegetables, legumes, whole grains, nuts, and oily fish — and low in ultra-processed foods, refined carbohydrates, and added sugar — consistently reduces cardiometabolic risk across all populations. No single diet is optimal; the overall pattern matters most.</p>
-            <div class="evidence-tag">Strong evidence (RCTs &amp; cohort studies)</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">02</div>
-            <h3>Move More, Sit Less</h3>
-            <p>150–300 minutes of moderate-intensity aerobic activity per week, combined with muscle-strengthening activities twice weekly, is the global standard. Even breaking up prolonged sitting with brief movement bouts measurably improves glucose metabolism.</p>
-            <div class="evidence-tag">Strong evidence</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">03</div>
-            <h3>Achieve and Maintain a Healthy Weight</h3>
-            <p>For individuals with overweight or obesity, even modest sustained weight loss (5–7%) substantially reduces the incidence of type 2 diabetes, improves blood pressure, and lowers cardiovascular risk. Behavioural support and, where indicated, medical therapy can support this.</p>
-            <div class="evidence-tag">Strong evidence (Diabetes Prevention Program)</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">04</div>
-            <h3>Protect Your Sleep</h3>
-            <p>Seven to nine hours of quality sleep per night supports healthy glucose metabolism, maintains hormonal balance, and reduces appetite-regulating hormone disruption. Shift work and chronic sleep restriction independently raise cardiometabolic risk.</p>
-            <div class="evidence-tag">Emerging strong evidence</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">05</div>
-            <h3>Manage Chronic Stress</h3>
-            <p>Chronic psychological stress elevates cortisol, which raises blood glucose, promotes visceral fat accumulation, and increases cardiovascular risk. Mindfulness-based stress reduction, regular physical activity, and social connection are evidence-based approaches.</p>
-            <div class="evidence-tag">Moderate-strong evidence</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">06</div>
-            <h3>Avoid Tobacco and Limit Alcohol</h3>
-            <p>Smoking is an independent risk factor for cardiovascular disease and type 2 diabetes. Excessive alcohol consumption raises blood pressure, contributes to fatty liver disease, and disrupts metabolic health. No level of smoking is safe.</p>
-            <div class="evidence-tag">Strong evidence</div>
-          </div>
+      <div class="tab-panel active" id="tab-individual" role="tabpanel">
+        <div class="prev-grid">
+          <div class="prev-card" data-animate="fade-up" data-delay="0"><div class="prev-n">01</div><h3>Prioritise Dietary Quality</h3><p>A diet rich in vegetables, legumes, whole grains, nuts, and oily fish — low in ultra-processed foods — consistently reduces cardiometabolic risk across all populations.</p><span class="badge">Strong evidence (RCTs &amp; cohorts)</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="60"><div class="prev-n">02</div><h3>Move More, Sit Less</h3><p>150–300 minutes of moderate aerobic activity plus strength training twice weekly. Even breaking up prolonged sitting measurably improves glucose metabolism.</p><span class="badge">Strong evidence</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="120"><div class="prev-n">03</div><h3>Maintain a Healthy Weight</h3><p>Even modest sustained weight loss (5–7%) substantially reduces type 2 diabetes incidence, improves blood pressure, and lowers cardiovascular risk.</p><span class="badge">Diabetes Prevention Program</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="0"><div class="prev-n">04</div><h3>Protect Your Sleep</h3><p>7–9 hours of quality sleep supports healthy glucose metabolism and hormonal balance. Chronic sleep restriction independently raises cardiometabolic risk.</p><span class="badge">Emerging strong evidence</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="60"><div class="prev-n">05</div><h3>Manage Chronic Stress</h3><p>Chronic stress elevates cortisol, raises blood glucose, and promotes visceral fat. Mindfulness, physical activity, and social connection are evidence-based approaches.</p><span class="badge">Moderate-strong evidence</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="120"><div class="prev-n">06</div><h3>Avoid Tobacco &amp; Limit Alcohol</h3><p>Smoking is an independent risk factor for cardiovascular disease and type 2 diabetes. Excessive alcohol raises blood pressure and drives fatty liver disease.</p><span class="badge">Strong evidence</span></div>
         </div>
       </div>
 
-      <div class="tab-content" id="tab-clinical">
-        <div class="prevention-grid">
-          <div class="prevention-card">
-            <div class="prev-number">01</div>
-            <h3>Screen Early and Often</h3>
-            <p>Cardiometabolic diseases develop silently. Regular screening for blood glucose, blood pressure, lipids, and waist circumference — starting from age 35–40, or earlier with risk factors — enables identification of prediabetes and early cardiovascular risk before symptoms emerge.</p>
-            <div class="evidence-tag">WHO &amp; IDF guidelines</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">02</div>
-            <h3>Structured Prevention Programmes</h3>
-            <p>The Finnish Diabetes Prevention Study and the US Diabetes Prevention Program demonstrated that intensive lifestyle intervention in high-risk individuals reduces type 2 diabetes incidence by 58% — outperforming metformin alone. Scalable digital and group-based versions exist.</p>
-            <div class="evidence-tag">Level 1 evidence (RCTs)</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">03</div>
-            <h3>Treat-to-Target Approaches</h3>
-            <p>For those already diagnosed, simultaneously managing blood glucose, blood pressure, and LDL cholesterol to evidence-based targets dramatically reduces the risk of complications. Multifactorial risk treatment in the Steno-2 trial cut all-cause mortality by 50%.</p>
-            <div class="evidence-tag">Steno-2 &amp; ACCORD trials</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">04</div>
-            <h3>New Therapeutic Options</h3>
-            <p>GLP-1 receptor agonists (semaglutide, liraglutide) and SGLT-2 inhibitors now have proven cardiovascular and kidney protection benefits beyond glucose control. Cardiometabolic medicine is rapidly evolving toward disease modification, not just symptom management.</p>
-            <div class="evidence-tag">LEADER, SUSTAIN, EMPA-REG trials</div>
-          </div>
+      <div class="tab-panel" id="tab-clinical" role="tabpanel">
+        <div class="prev-grid">
+          <div class="prev-card" data-animate="fade-up" data-delay="0"><div class="prev-n">01</div><h3>Screen Early and Often</h3><p>Regular screening for blood glucose, blood pressure, lipids, and waist circumference from age 35–40 enables identification of prediabetes years before symptoms emerge.</p><span class="badge">WHO &amp; IDF guidelines</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="60"><div class="prev-n">02</div><h3>Structured Prevention Programmes</h3><p>Intensive lifestyle intervention in high-risk individuals reduces type 2 diabetes incidence by 58% — outperforming metformin alone. Scalable digital and group-based versions now exist.</p><span class="badge">Level 1 evidence (RCTs)</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="120"><div class="prev-n">03</div><h3>Treat-to-Target Approaches</h3><p>Simultaneously managing blood glucose, blood pressure, and LDL to evidence-based targets dramatically reduces complications. Multifactorial treatment in Steno-2 cut all-cause mortality by 50%.</p><span class="badge">Steno-2 &amp; ACCORD trials</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="0"><div class="prev-n">04</div><h3>New Therapeutic Options</h3><p>GLP-1 receptor agonists and SGLT-2 inhibitors now have proven cardiovascular and kidney protection beyond glucose control — shifting medicine toward disease modification.</p><span class="badge">LEADER, SUSTAIN, EMPA-REG</span></div>
         </div>
       </div>
 
-      <div class="tab-content" id="tab-population">
-        <div class="prevention-grid">
-          <div class="prevention-card">
-            <div class="prev-number">01</div>
-            <h3>Food System Reform</h3>
-            <p>Taxation of sugar-sweetened beverages, reformulation of processed foods, front-of-pack nutrition labelling, and restrictions on unhealthy food marketing to children are structural interventions with strong evidence of population-level impact.</p>
-            <div class="evidence-tag">WCRF &amp; WHO recommendations</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">02</div>
-            <h3>Built Environment &amp; Active Design</h3>
-            <p>Urban planning that prioritises walking, cycling, green spaces, and access to affordable healthy food reduces cardiometabolic risk at the population level. The built environment is one of the strongest determinants of physical activity levels.</p>
-            <div class="evidence-tag">Strong population evidence</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">03</div>
-            <h3>Health Equity as Prevention</h3>
-            <p>Addressing socioeconomic determinants of health — income inequality, food insecurity, occupational stress, and limited healthcare access — is essential. Cardiometabolic risk is not equally distributed; targeted prevention must reach those at greatest disadvantage.</p>
-            <div class="evidence-tag">Social determinants framework (WHO)</div>
-          </div>
-          <div class="prevention-card">
-            <div class="prev-number">04</div>
-            <h3>Predictive Population Health</h3>
-            <p>AI and machine learning models applied to health registry data can identify individuals at highest risk years before clinical diagnosis, enabling proactive outreach. Research funded by the Novo Nordisk Foundation has demonstrated 100x improved prediction accuracy for type 2 diabetes using 20 years of Danish health registry data.</p>
-            <div class="evidence-tag">NNF-funded research, Lancet Digital Health (pending)</div>
-          </div>
+      <div class="tab-panel" id="tab-population" role="tabpanel">
+        <div class="prev-grid">
+          <div class="prev-card" data-animate="fade-up" data-delay="0"><div class="prev-n">01</div><h3>Food System Reform</h3><p>Taxation of sugar-sweetened beverages, reformulation of processed foods, front-of-pack labelling, and restrictions on marketing to children — all with strong population-level evidence.</p><span class="badge">WCRF &amp; WHO recommendations</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="60"><div class="prev-n">02</div><h3>Built Environment &amp; Active Design</h3><p>Urban planning prioritising walking, cycling, green spaces, and access to affordable healthy food reduces cardiometabolic risk across entire populations.</p><span class="badge">Strong population evidence</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="120"><div class="prev-n">03</div><h3>Health Equity as Prevention</h3><p>Addressing income inequality, food insecurity, and limited healthcare access is essential. Cardiometabolic risk is not equally distributed — targeted prevention must reach those at greatest disadvantage.</p><span class="badge">Social determinants (WHO)</span></div>
+          <div class="prev-card" data-animate="fade-up" data-delay="0"><div class="prev-n">04</div><h3>Predictive Population Health</h3><p>AI applied to health registry data can identify individuals at highest risk years before diagnosis. NNF-funded research demonstrated 100× improved prediction accuracy using 20 years of Danish health data.</p><span class="badge">NNF research — Lancet Digital Health</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="section section-cta">
-    <div class="container cta-inner">
-      <div>
-        <h2>Advancing Research. Transforming Lives.</h2>
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-inner" data-animate="fade-up">
+      <div class="cta-copy">
+        <h2>Advancing Research.<br>Transforming Lives.</h2>
         <p>The Novo Nordisk Foundation funds cutting-edge research into cardiometabolic diseases — from molecular biology to population-scale AI — to reduce the global burden of preventable disease.</p>
       </div>
-      <a href="https://www.novonordiskfonden.dk" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Learn About Our Research</a>
+      <a href="https://www.novonordiskfonden.dk" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">Learn About Our Research</a>
     </div>
   </section>
 
@@ -351,10 +369,9 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-mark"></span>
-        <span class="logo-text">Novo Nordisk Foundation</span>
+        <img src="assets/logos/logo_inline_white.png" alt="Novo Nordisk Foundation" height="22" width="auto" style="opacity: 0.72;">
       </div>
-      <p class="footer-note">This page is an educational resource. All statistics are sourced from WHO, IDF, and peer-reviewed literature.</p>
+      <p class="footer-note">Educational resource. Statistics sourced from WHO, IDF, and peer-reviewed literature.</p>
     </div>
   </footer>
 
