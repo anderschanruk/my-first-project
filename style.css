@@ -4,7 +4,7 @@
 
    USAGE: Copy this file verbatim as the first block of
    style.css in any generated project. Then add page-
-   specific styles below a  /* PAGE STYLES */  comment.
+   specific styles below a  "PAGE STYLES"  comment.
 ===================================================== */
 
 /* =====================================================
@@ -507,6 +507,43 @@ ul[role="list"] { list-style: none; }
   display: inline-block; font-size: 0.7rem; font-weight: 600;
   color: var(--nnf-blue); background: var(--nnf-blue-pale);
   padding: 4px 12px; border-radius: 100px; width: fit-content; letter-spacing: 0.02em;
+}
+
+/* =====================================================
+   SOURCES & REFERENCES
+===================================================== */
+.source-list {
+  list-style: none; counter-reset: src;
+  border: 1px solid var(--nnf-sand-border); border-radius: var(--r-xl);
+  overflow: hidden; background: var(--nnf-white); margin-bottom: 28px;
+}
+.source-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 20px; border-bottom: 1px solid var(--nnf-sand-mid);
+  transition: background 0.25s var(--ease);
+}
+.source-item:last-child { border-bottom: none; }
+.source-item:hover { background: var(--nnf-blue-pale); }
+.source-tag {
+  flex-shrink: 0; min-width: 64px; text-align: center;
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--nnf-blue); background: var(--nnf-blue-pale);
+  padding: 6px 8px; border-radius: 100px; margin-top: 2px;
+}
+.source-body { flex: 1; }
+.source-claim {
+  font-size: var(--text-sm); font-weight: 600; color: var(--nnf-dark);
+  line-height: 1.5; margin-bottom: 5px;
+}
+.source-body a {
+  font-size: 0.8rem; color: var(--nnf-blue); line-height: 1.5;
+  text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t);
+  word-break: break-word;
+}
+.source-body a:hover, .source-body a:focus-visible { border-bottom-color: var(--nnf-blue); }
+.source-disclaimer {
+  font-size: 0.78rem; color: #6B7280; line-height: 1.7;
+  max-width: 720px; font-style: italic;
 }
 
 /* =====================================================
