@@ -4,7 +4,7 @@
 
    USAGE: Copy this file verbatim as the first block of
    style.css in any generated project. Then add page-
-   specific styles below a  /* PAGE STYLES */  comment.
+   specific styles below a  "PAGE STYLES"  comment.
 ===================================================== */
 
 /* =====================================================
@@ -101,6 +101,7 @@
   --nnf-dark-mid:    #1e2028;
   --nnf-dark-border: rgba(255,255,255,0.08);
   --nnf-sand-light:  #F0F0EB;
+  --nnf-sand-soft:   #EAE6DF;
   --nnf-sand-mid:    #E1DCD7;
   --nnf-sand-border: #C8C2BA;
   --nnf-white:       #FFFFFF;
@@ -361,6 +362,8 @@ ul[role="list"] { list-style: none; }
 ===================================================== */
 .dark  { background: var(--nnf-dark);      color: var(--nnf-sand-light); }
 .cream { background: var(--nnf-sand-light); color: var(--nnf-dark); }
+.sand  { background: var(--nnf-sand-soft);  color: var(--nnf-dark); }
+.cream .section-lede, .sand .section-lede { color: #5A6472; }
 
 /* =====================================================
    DISEASE BENTO GRID — mobile first
@@ -421,32 +424,33 @@ ul[role="list"] { list-style: none; }
   display: grid; grid-template-columns: 1fr; gap: var(--gap); margin-bottom: 56px;
 }
 .stats-card {
-  background: rgba(255,255,255,0.04); border: 1px solid var(--nnf-dark-border);
-  border-radius: var(--r-xl); padding: 32px 28px; transition: background 0.3s var(--ease);
+  background: var(--nnf-white); border: 1px solid var(--nnf-sand-border);
+  border-radius: var(--r-xl); padding: 32px 28px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-.stats-card:hover { background: rgba(35,85,200,0.07); }
+.stats-card:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(20,20,25,0.10); }
 .sc-num {
   font-family: var(--font-serif); font-size: clamp(1.65rem, 5vw, 2.8rem); font-weight: 700;
   color: var(--nnf-blue); letter-spacing: -0.03em; line-height: 1; margin-bottom: 12px;
 }
-.stats-card p { font-size: var(--text-sm); color: rgba(240,240,235,0.55); line-height: 1.6; }
+.stats-card p { font-size: var(--text-sm); color: #4A5568; line-height: 1.6; }
 
 /* Trend rows */
 .trend-block {}
 .trend-hd {
   font-family: var(--font-sans); font-size: clamp(1.1rem, 3.5vw, 1.5rem); font-weight: 600;
-  color: var(--nnf-sand-light); margin-bottom: 24px; letter-spacing: -0.01em;
+  color: var(--nnf-dark); margin-bottom: 24px; letter-spacing: -0.01em;
 }
-.trend-rows { border: 1px solid var(--nnf-dark-border); border-radius: var(--r-xl); overflow: hidden; }
+.trend-rows { border: 1px solid var(--nnf-sand-border); border-radius: var(--r-xl); overflow: hidden; background: var(--nnf-white); }
 .trend-row {
   display: flex; align-items: flex-start; gap: 20px; padding: 24px 20px;
-  border-bottom: 1px solid var(--nnf-dark-border); transition: background 0.25s;
+  border-bottom: 1px solid var(--nnf-sand-mid); transition: background 0.25s;
 }
 .trend-row:last-child { border-bottom: none; }
-.trend-row:hover { background: rgba(255,255,255,0.03); }
+.trend-row:hover { background: var(--nnf-blue-pale); }
 .trend-num { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; color: var(--nnf-blue); flex-shrink: 0; width: 28px; margin-top: 2px; }
-.trend-content strong { display: block; font-size: 0.92rem; font-weight: 600; color: var(--nnf-sand-light); margin-bottom: 5px; }
-.trend-content p { font-size: 0.84rem; color: rgba(240,240,235,0.55); line-height: 1.65; }
+.trend-content strong { display: block; font-size: 0.92rem; font-weight: 600; color: var(--nnf-dark); margin-bottom: 5px; }
+.trend-content p { font-size: 0.84rem; color: #4A5568; line-height: 1.65; }
 
 /* =====================================================
    FACTS BENTO
@@ -479,34 +483,71 @@ ul[role="list"] { list-style: none; }
    PREVENTION TABS — mobile first
 ===================================================== */
 .tab-row {
-  display: flex; gap: 4px; background: rgba(255,255,255,0.06);
+  display: flex; gap: 4px; background: rgba(20,20,25,0.06);
   border-radius: 12px; padding: 4px; margin-bottom: 32px;
 }
 .tab {
   flex: 1; padding: 10px 8px; border: none; border-radius: 9px;
-  background: none; color: rgba(255,255,255,0.50);
+  background: none; color: #6B7280;
   font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600;
   transition: all var(--t) var(--ease); min-height: 44px; cursor: pointer;
 }
-.tab:hover { color: rgba(255,255,255,0.85); }
+.tab:hover { color: var(--nnf-dark); }
 .tab[aria-selected="true"] { background: var(--nnf-blue); color: #fff; box-shadow: 0 4px 14px rgba(35,85,200,0.35); }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; animation: fadeUp 0.4s var(--ease); }
 
 .prev-grid { display: grid; grid-template-columns: 1fr; gap: var(--gap); }
 .prev-card {
-  background: rgba(255,255,255,0.04); border: 1px solid var(--nnf-dark-border);
+  background: var(--nnf-white); border: 1px solid var(--nnf-sand-border);
   border-radius: var(--r-xl); padding: 28px 24px;
   display: flex; flex-direction: column; gap: 8px; transition: all 0.3s var(--ease);
 }
-.prev-card:hover { background: rgba(35,85,200,0.08); border-color: rgba(35,85,200,0.25); transform: translateY(-2px); }
+.prev-card:hover { border-color: rgba(35,85,200,0.30); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(20,20,25,0.10); }
 .prev-n { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; color: var(--nnf-blue); letter-spacing: 0.08em; }
-.prev-card h3 { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--nnf-sand-light); line-height: 1.35; }
-.prev-card p   { font-size: 0.84rem; color: rgba(240,240,235,0.58); line-height: 1.72; flex: 1; }
+.prev-card h3 { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--nnf-dark); line-height: 1.35; }
+.prev-card p   { font-size: 0.84rem; color: #4A5568; line-height: 1.72; flex: 1; }
 .badge {
   display: inline-block; font-size: 0.7rem; font-weight: 600;
   color: var(--nnf-blue); background: var(--nnf-blue-pale);
   padding: 4px 12px; border-radius: 100px; width: fit-content; letter-spacing: 0.02em;
+}
+
+/* =====================================================
+   SOURCES & REFERENCES
+===================================================== */
+.source-list {
+  list-style: none; counter-reset: src;
+  border: 1px solid var(--nnf-sand-border); border-radius: var(--r-xl);
+  overflow: hidden; background: var(--nnf-white); margin-bottom: 28px;
+}
+.source-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 20px; border-bottom: 1px solid var(--nnf-sand-mid);
+  transition: background 0.25s var(--ease);
+}
+.source-item:last-child { border-bottom: none; }
+.source-item:hover { background: var(--nnf-blue-pale); }
+.source-tag {
+  flex-shrink: 0; min-width: 64px; text-align: center;
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--nnf-blue); background: var(--nnf-blue-pale);
+  padding: 6px 8px; border-radius: 100px; margin-top: 2px;
+}
+.source-body { flex: 1; }
+.source-claim {
+  font-size: var(--text-sm); font-weight: 600; color: var(--nnf-dark);
+  line-height: 1.5; margin-bottom: 5px;
+}
+.source-body a {
+  font-size: 0.8rem; color: var(--nnf-blue); line-height: 1.5;
+  text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--t);
+  word-break: break-word;
+}
+.source-body a:hover, .source-body a:focus-visible { border-bottom-color: var(--nnf-blue); }
+.source-disclaimer {
+  font-size: 0.78rem; color: #6B7280; line-height: 1.7;
+  max-width: 720px; font-style: italic;
 }
 
 /* =====================================================
@@ -600,7 +641,7 @@ ul[role="list"] { list-style: none; }
   .sc-a { grid-column: 1 / 7; }
   .sc-b { grid-column: 7 / 10; }
   .sc-c { grid-column: 10 / 13; }
-  .sc-d { grid-column: 1 / 13; display: flex; align-items: center; gap: 32px; border-top: 1px solid var(--nnf-dark-border); padding-top: 24px; margin-top: -4px; }
+  .sc-d { grid-column: 1 / 13; display: flex; align-items: center; gap: 32px; border-top: 1px solid var(--nnf-sand-mid); padding-top: 24px; margin-top: -4px; }
   .sc-d .sc-num { flex-shrink: 0; }
 
   /* 4-col facts */
