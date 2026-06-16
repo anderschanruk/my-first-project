@@ -145,6 +145,24 @@ if (sections.length && navAnchors.length) {
   sections.forEach(s => sectionObs.observe(s));
 }
 
+// ── Background film: respect reduced-motion, play only while on-screen ─────────
+const bgVideos = document.querySelectorAll('.hero-video, .film-band-video');
+if (bgVideos.length) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    bgVideos.forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+  } else {
+    const videoObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting) { v.play().catch(() => {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.15 });
+    bgVideos.forEach(v => videoObs.observe(v));
+  }
+}
+
 // ── FAQ accordion ─────────────────────────────────────────────────────────────
 document.querySelectorAll('.faq-item').forEach(item => {
   const trigger = item.querySelector('.faq-trigger');
