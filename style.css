@@ -237,7 +237,18 @@ ul[role="list"] { list-style: none; }
 /* =====================================================
    SECTION HEADERS
 ===================================================== */
-.section-hd { margin-bottom: 48px; }
+.section-hd { margin-bottom: 48px; padding-top: 36px; position: relative; }
+/* Cellerator-style fine dotted divider above each section header */
+.section-hd::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+  background-size: 9px 3px; background-repeat: repeat-x; opacity: 0.28;
+}
+.dotted-rule {
+  height: 3px; width: 100%;
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+  background-size: 9px 3px; background-repeat: repeat-x; opacity: 0.28;
+}
 .eyebrow {
   display: inline-block; font-size: 0.7rem; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase;
@@ -262,20 +273,53 @@ ul[role="list"] { list-style: none; }
 ===================================================== */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 48px; padding: 0 28px; border-radius: var(--r-md); border: none;
-  font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600;
-  letter-spacing: 0.02em; text-decoration: none;
+  min-height: 52px; padding: 0 34px; border-radius: 100px; border: 1.5px solid transparent;
+  font-family: var(--font-sans); font-size: 0.98rem; font-weight: 600;
+  letter-spacing: 0.01em; text-decoration: none;
   transition: all var(--t) var(--ease); cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.btn-blue  { background: var(--nnf-blue); color: #fff; }
-.btn-blue:hover, .btn-blue:focus-visible  { background: var(--nnf-blue-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(35,85,200,0.35); }
-.btn-ghost { background: transparent; color: rgba(255,255,255,0.85); border: 1.5px solid rgba(255,255,255,0.30); }
+.btn-blue  { background: var(--nnf-blue); color: #fff; border-color: var(--nnf-blue); }
+.btn-blue:hover, .btn-blue:focus-visible  { background: var(--nnf-blue-hover); border-color: var(--nnf-blue-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(35,85,200,0.35); }
+.btn-ghost { background: transparent; color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.30); }
 .btn-ghost:hover, .btn-ghost:focus-visible { background: rgba(255,255,255,0.10); color: #fff; transform: translateY(-2px); }
-.btn-light { background: #fff; color: var(--nnf-blue); }
+.btn-light { background: #fff; color: var(--nnf-blue); border-color: #fff; }
 .btn-light:hover, .btn-light:focus-visible { background: var(--nnf-sand-light); transform: translateY(-2px); }
-.btn-lg { min-height: 54px; padding: 0 36px; font-size: 0.95rem; }
+/* Cellerator-style thin pill outline for light sections */
+.btn-outline { background: transparent; color: var(--nnf-dark); border-color: var(--nnf-sand-border); }
+.btn-outline:hover, .btn-outline:focus-visible { border-color: var(--nnf-blue); color: var(--nnf-blue); transform: translateY(-2px); }
+.btn-lg { min-height: 58px; padding: 0 40px; font-size: 1.05rem; }
 .btn:focus-visible { outline: 2px solid var(--nnf-blue); outline-offset: 3px; }
+
+/* =====================================================
+   INTRO / FEATURE BAND (cellerator asymmetric layout)
+===================================================== */
+.intro-band { background: var(--nnf-sand-light); }
+.intro-band .container { display: grid; gap: 40px; align-items: center; }
+.intro-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.intro-copy .eyebrow { margin-top: 22px; }
+.intro-headline {
+  font-family: var(--font-serif); font-size: var(--text-h2); font-weight: 500;
+  line-height: 1.1; letter-spacing: -0.015em; color: var(--nnf-dark); margin: 6px 0 18px;
+}
+.intro-copy p {
+  font-size: clamp(1.075rem, 2.5vw, 1.2rem); line-height: 1.7;
+  color: #4A5568; margin-bottom: 30px; max-width: 460px;
+}
+.media-figure { margin: 0; }
+.media-circle {
+  width: min(360px, 80vw); aspect-ratio: 1; border-radius: 50%;
+  object-fit: cover; margin: 0 auto; display: block;
+}
+.media-caption {
+  display: block; margin-top: 18px; font-size: 0.95rem; font-weight: 600;
+  color: var(--nnf-blue); line-height: 1.55; max-width: 440px; text-align: center;
+}
+@media (min-width: 1024px) {
+  .intro-band .container { grid-template-columns: 1.05fr 0.95fr; gap: 72px; }
+  .media-circle { width: min(440px, 38vw); }
+  .media-caption { text-align: left; margin-left: auto; }
+}
 
 /* =====================================================
    HERO — mobile first
