@@ -97,6 +97,7 @@
   --nnf-blue:        #2355C8;
   --nnf-blue-hover:  #1a44b0;
   --nnf-blue-pale:   rgba(35,85,200,0.10);
+  --blue:            var(--nnf-blue); /* alias used by inline icon SVGs */
   --nnf-dark:        #141419;
   --nnf-dark-mid:    #1e2028;
   --nnf-dark-border: rgba(255,255,255,0.08);
