@@ -322,6 +322,62 @@ ul[role="list"] { list-style: none; }
 }
 
 /* =====================================================
+   FAUNA-STYLE PLAYFUL GEOMETRY
+===================================================== */
+/* Floating accent shapes */
+.fshape {
+  position: absolute; z-index: 4; pointer-events: none;
+  width: 34px; height: 34px; animation: floaty 6s ease-in-out infinite;
+}
+.fs-circle  { border-radius: 50%; background: var(--c, var(--nnf-green-light)); }
+.fs-arch    { border-radius: 100px 100px 6px 6px; background: var(--c, var(--nnf-blue)); }
+.fs-diamond { background: var(--c, var(--nnf-blue-light)); border-radius: 5px; animation-name: floaty-rot; }
+.fs-coin    { border-radius: 50%; background: var(--c, var(--nnf-pink)); }
+.fs-coin::after { content: ""; position: absolute; inset: 36%; border-radius: 50%; background: var(--nnf-sand-light); }
+.fs-x::before, .fs-x::after {
+  content: ""; position: absolute; top: 50%; left: 0; width: 100%; height: 7px;
+  border-radius: 6px; background: var(--c, var(--nnf-purple));
+}
+.fs-x::before { transform: translateY(-50%) rotate(45deg); }
+.fs-x::after  { transform: translateY(-50%) rotate(-45deg); }
+
+/* "Everywhere" overlapping colour blocks */
+.settings { background: var(--nnf-sand-light); overflow: hidden; }
+.settings-hd { text-align: center; }
+.settings-hd .eyebrow, .settings-foot { display: inline-block; }
+.settings-stage {
+  position: relative; display: flex; flex-direction: column; gap: 16px;
+  padding: 36px 0; max-width: 1040px; margin: 0 auto;
+}
+.set-block {
+  position: relative; z-index: 1; min-height: 132px; padding: 26px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--font-serif); font-weight: 500; line-height: 1.1;
+  font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: -0.01em;
+}
+.sb-1 { background: var(--nnf-blue);        color: #fff; border-radius: 22px; }
+.sb-2 { background: var(--nnf-green-light); color: var(--nnf-green-dark); border-radius: 50%/45%; }
+.sb-3 { background: var(--nnf-purple);      color: var(--nnf-pink); border-radius: 120px 120px 22px 22px; }
+.sb-4 { background: var(--nnf-pink);        color: var(--nnf-purple); border-radius: 22px 120px 120px 22px; }
+.settings-foot {
+  font-family: var(--font-serif); font-weight: 400; color: var(--nnf-dark);
+  text-align: center; max-width: 680px; margin: 36px auto 0;
+  font-size: clamp(1.3rem, 3vw, 1.9rem); line-height: 1.3; letter-spacing: -0.01em;
+}
+
+@media (min-width: 1024px) {
+  .settings-stage { flex-direction: row; align-items: center; justify-content: center; height: 380px; gap: 0; }
+  .set-block { flex: 1; height: 100%; min-height: 0; }
+  .sb-1 { z-index: 1; align-self: flex-start; height: 78%; margin-right: -28px; }
+  .sb-2 { z-index: 3; align-self: center; aspect-ratio: 1; flex: 0 0 auto; height: 100%; }
+  .sb-3 { z-index: 2; align-self: flex-start; height: 86%; margin-left: -28px; }
+  .sb-4 { z-index: 1; align-self: flex-end; height: 74%; margin-left: -20px; }
+}
+
+@keyframes floaty     { 0%,100% { transform: translateY(0); }            50% { transform: translateY(-13px); } }
+@keyframes floaty-rot { 0%,100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(-13px) rotate(45deg); } }
+
+/* =====================================================
    HERO — mobile first
 ===================================================== */
 .hero {
@@ -681,7 +737,14 @@ ul[role="list"] { list-style: none; }
 ===================================================== */
 @media (min-width: 640px) {
   .nav-inner { padding: 0 28px; height: 64px; }
-  .nav-links { display: flex; margin-left: auto; }
+  .nav-links {
+    display: flex; margin-left: auto; align-items: center; gap: 4px;
+    background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16);
+    padding: 6px; border-radius: 100px; backdrop-filter: blur(8px);
+  }
+  .nav-links a { padding: 9px 18px; border-radius: 100px; color: rgba(255,255,255,0.72); }
+  .nav-links a::after { display: none; }
+  .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.14); }
   .nav-toggle { display: none; }
   .section { padding: 104px 28px; }
   .cta-section { padding: 104px 28px; }
@@ -751,4 +814,5 @@ ul[role="list"] { list-style: none; }
   .hero-title, .hero-sub, .hero-ctas, .hero-eyebrow, .hero-stats { animation: none; opacity: 1; }
   .hero-bg-img, .hero-video, .quote-break-img, .film-band-video { animation: none !important; }
   .hero-video, .film-band-video { display: none; }
+  .fshape { animation: none !important; }
 }
