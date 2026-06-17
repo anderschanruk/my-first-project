@@ -362,10 +362,10 @@ ul[role="list"] { list-style: none; }
   font-family: var(--font-serif); font-weight: 500; line-height: 1.1;
   font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: -0.01em;
 }
-.sb-1 { background: var(--nnf-blue);        color: #fff; border-radius: 22px; }
-.sb-2 { background: var(--nnf-green-light); color: var(--nnf-green-dark); border-radius: 50%/45%; }
-.sb-3 { background: var(--nnf-purple);      color: var(--nnf-pink); border-radius: 120px 120px 22px 22px; }
-.sb-4 { background: var(--nnf-pink);        color: var(--nnf-purple); border-radius: 22px 120px 120px 22px; }
+.sb-1 { background: var(--nnf-blue);     color: #fff; border-radius: 22px; }
+.sb-2 { background: var(--nnf-sand-mid);  color: var(--nnf-dark); border-radius: 50%/45%; }
+.sb-3 { background: var(--nnf-dark);      color: #fff; border-radius: 120px 120px 22px 22px; }
+.sb-4 { background: var(--nnf-blue);      color: #fff; border-radius: 22px 120px 120px 22px; }
 .settings-foot {
   font-family: var(--font-serif); font-weight: 400; color: var(--nnf-dark);
   text-align: center; max-width: 680px; margin: 36px auto 0;
