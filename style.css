@@ -107,6 +107,13 @@
   --nnf-sand-border: #C8C2BA;
   --nnf-white:       #FFFFFF;
 
+  /* ── Brand-deck warm cream + soft pillar tints (NNF Timesaver template) ── */
+  --nnf-cream:      #F1EEE2;
+  --nnf-tint-pink:  #F0D4CD;
+  --nnf-tint-blue:  #CAD9E8;
+  --nnf-tint-green: #B6D9C0;
+  --nnf-coral:      #FF8A80;
+
   /* ── Secondary — People pillar ── */
   --nnf-purple-dark: #310024;
   --nnf-purple:      #460032;
@@ -294,7 +301,7 @@ ul[role="list"] { list-style: none; }
 /* =====================================================
    INTRO / FEATURE BAND (cellerator asymmetric layout)
 ===================================================== */
-.intro-band { background: var(--nnf-sand-light); }
+.intro-band { background: var(--nnf-cream); }
 .intro-band .container { display: grid; gap: 40px; align-items: center; }
 .intro-copy { display: flex; flex-direction: column; align-items: flex-start; }
 .intro-copy .eyebrow { margin-top: 22px; }
@@ -342,7 +349,7 @@ ul[role="list"] { list-style: none; }
 .fs-x::after  { transform: translateY(-50%) rotate(-45deg); }
 
 /* "Everywhere" overlapping colour blocks */
-.settings { background: var(--nnf-sand-light); overflow: hidden; }
+.settings { background: var(--nnf-cream); overflow: hidden; }
 .settings-hd { text-align: center; }
 .settings-hd .eyebrow, .settings-foot { display: inline-block; }
 .settings-stage {
@@ -469,9 +476,14 @@ ul[role="list"] { list-style: none; }
    SECTION SHARED
 ===================================================== */
 .dark  { background: var(--nnf-dark);      color: var(--nnf-sand-light); }
-.cream { background: var(--nnf-sand-light); color: var(--nnf-dark); }
-.sand  { background: var(--nnf-sand-soft);  color: var(--nnf-dark); }
-.cream .section-lede, .sand .section-lede { color: #5A6472; }
+.cream { background: var(--nnf-cream);      color: var(--nnf-dark); }
+.sand  { background: var(--nnf-sand-soft);   color: var(--nnf-dark); }
+/* Soft pillar-tint section backgrounds (from the NNF brand deck) */
+.tint-blue  { background: var(--nnf-tint-blue);  color: var(--nnf-dark); }
+.tint-green { background: var(--nnf-tint-green); color: var(--nnf-dark); }
+.tint-pink  { background: var(--nnf-tint-pink);  color: var(--nnf-dark); }
+.cream .section-lede, .sand .section-lede,
+.tint-blue .section-lede, .tint-green .section-lede, .tint-pink .section-lede { color: #4F5862; }
 
 /* =====================================================
    DISEASE BENTO GRID — mobile first
