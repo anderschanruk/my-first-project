@@ -138,7 +138,7 @@ if (sections.length && navAnchors.length) {
       if (!entry.isIntersecting) return;
       navAnchors.forEach(a => {
         const active = a.getAttribute('href') === '#' + entry.target.id;
-        a.style.color = active ? 'var(--nnf-blue)' : '';
+        a.style.color = active ? '#fff' : '';
       });
     });
   }, { threshold: 0.35 });
